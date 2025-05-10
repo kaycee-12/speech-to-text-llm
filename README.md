@@ -1,53 +1,57 @@
+# Voice-Controlled Web Search Assistant
 
-# Speech to Text for Transcription Services
+This is a Python script that uses **speech recognition** to capture voice input from the user and performs a **Google web search** based on the recognized speech. It also uses **text-to-speech (TTS)** to interact with the user via voice.
 
-This project provides a simple yet effective pipeline for converting speech audio files into text transcriptions using automatic speech recognition (ASR) techniques. It is intended for transcription services that process audio inputs such as interviews, podcasts, meetings, or lectures.
+## Features
 
-## 📁 Project Structure
+- Captures voice input using your microphone.
+- Converts speech to text using Google's speech recognition API.
+- Performs a Google search for the recognized text.
+- Provides voice feedback using text-to-speech.
 
-- `project_1_Speech_to_Text_for_transcription_services.ipynb`: Jupyter Notebook containing the complete workflow for preprocessing audio, performing speech-to-text conversion, and displaying results.
+## Requirements
 
-## 🚀 Features
+Make sure you have Python 3 installed.
 
-- Load and preprocess audio files (e.g., WAV, MP3)
-- Use pre-trained ASR models for transcription (e.g., from Hugging Face or OpenAI Whisper)
-- Display and optionally save transcribed text
-- Basic error handling and audio visualization
-
-## 🛠️ Dependencies
-
-Make sure you have the following packages installed:
+Install the following Python libraries before running the script:
 
 ```bash
-pip install torch torchaudio transformers librosa numpy matplotlib ipywidgets
+pip install SpeechRecognition
+pip install pyttsx3
+pip install pyaudio
 ```
 
-If you're using Whisper:
+> **Note**: If you face issues installing `pyaudio`, you may need to install it using a precompiled binary for your system. On Windows, you can use:
+> ```bash
+> pip install pipwin
+> pipwin install pyaudio
+> ```
+
+## How to Use
+
+1. Connect a microphone to your computer.
+2. Run the script:
+   ```bash
+   python voice_search.py
+   ```
+3. When prompted, speak your search query.
+4. The script will recognize your speech and open the corresponding Google search results in your default web browser.
+
+## Code Overview
+
+- `speak(text)`: Converts text to spoken audio.
+- `take_command()`: Listens for voice input and returns recognized text.
+- `search_web(query)`: Opens a Google search for the given query.
+
+## Example
 
 ```bash
-pip install openai-whisper
+$ python voice_search.py
+Listening...
+(You say: "Weather in New York")
+Opening browser to: https://www.google.com/search?q=Weather+in+New+York
 ```
 
-## 📌 How to Use
+## License
 
-1. Clone or download this repository.
-2. Open the notebook `project_1_Speech_to_Text_for_transcription_services.ipynb`.
-3. Upload your audio files and run the cells step-by-step.
-4. View the transcriptions and optionally export them.
-
-## 🔍 Example Output
-
-Input: `interview.wav`  
-Output:
-```
-Speaker 1: Welcome to the podcast.  
-Speaker 2: Thank you for having me.
-```
-
-## 📄 License
-
-MIT License (or replace with your preferred license)
-
-## 🤝 Contributing
-
-Contributions are welcome! Please fork the repo and submit a pull request.
+This project is open-source and free to use under the MIT License.
